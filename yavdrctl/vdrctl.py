@@ -16,6 +16,9 @@ from io import StringIO
 class VDRCTL():
     version = '0.0.1'
     progname = sys.argv[0]
+    special_priorities = {
+        'dynamite': 90
+    }
     # some shell format and color strings
     OKBLUE = '\033[94m'
     BRIGHTRED = '\033[1;31m'
@@ -307,11 +310,14 @@ class VDRCTL():
                 continue
             origin = config_to_enable['origin']
             if prio and not self.args.priority:
-                priority = prio
+                if name in self.special_priorities:
+                    priority = self.special_priorities[name]
+                else:
+                    priority = prio
             elif "priority" in self.args:
                 priority = self.args.priority
             else:
-                priority = self.default_priority
+                    priority = self.default_priority
             os.chdir(self.args.argsdir)
             target = os.path.relpath(os.path.join(
                 self.args.argsdir, "{}-{}.conf".format(priority, name)
