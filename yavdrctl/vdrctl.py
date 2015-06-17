@@ -1,4 +1,7 @@
-from arguments import Argparser
+try:
+    from . arguments import Argparser
+except:
+    from arguments import Argparser
 import fnmatch
 import json
 import os
