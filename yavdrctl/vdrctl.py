@@ -1,4 +1,4 @@
-from yavdrctl.arguments import Argparser
+from arguments import Argparser
 import fnmatch
 import json
 import os
