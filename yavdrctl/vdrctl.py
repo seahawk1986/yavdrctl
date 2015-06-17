@@ -161,10 +161,12 @@ class VDRCTL():
         self.make_header()
 
     def output(self, config_list):
+        #config_list = sorted(config_list,
+        #                     key=lambda k: (k['priority'],
+        #                                    k['name'])
+        #                     )
         config_list = sorted(config_list,
-                             key=lambda k: (k['priority'],
-                                            k['name'])
-                             )
+                             key=lambda c: c['filename'])
         output_dict = {
             "table": self.output_table,
             "plaintable": self.output_table,
@@ -318,6 +320,20 @@ class VDRCTL():
                 priority = self.args.priority
             else:
                     priority = self.default_priority
+            if not self.args.force:
+                already_enabled = list(
+                    filter(lambda c: c['name'] == name,
+                           self.active_config_list))
+                if already_enabled:
+                    print("WARNING: %s is already enabled as %s" %
+                          (origin,
+                           ", ".join(
+                              (c['filename'] for c in already_enabled)
+                           )
+                           ), file=sys.stderr)
+                    print("use --force to override", file=sys.stderr)
+                    continue
+
             os.chdir(self.args.argsdir)
             target = os.path.relpath(os.path.join(
                 self.args.argsdir, "{}-{}.conf".format(priority, name)
