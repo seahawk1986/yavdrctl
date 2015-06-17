@@ -205,7 +205,7 @@ class VDRCTL():
             )
 
     def output_json(self, config_list):
-        self.output_list.append(config_list)
+        self.output_list.extend(config_list)
 
     def extract_priority_and_name(self, filename):
         """extract priority and name from filename"""
