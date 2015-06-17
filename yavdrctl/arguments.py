@@ -77,7 +77,7 @@ class Argparser():
         sub_list_group.add_argument(
             "-o", "--output", default="table",
             help=("output format (default: table): "
-                  "classic|table|plaintable|text|json")
+                  "classic|table|plaintable|json")
         )
         # add arguments for "enable" command
         sub_cmd_enable = cmd_parsers.add_parser(
