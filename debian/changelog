@@ -1,0 +1,5 @@
+python3-yavdrctl (0.0.1-0yavdr0~trusty) trusty; urgency=medium
+
+  * first package build
+
+ -- Alexander Grothe <seahawk1986@gmx.de>  Sun, 07 Jun 2015 17:15:44 +0200

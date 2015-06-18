@@ -1,0 +1,13 @@
+Source: python3-yavdrctl
+Section: python
+Priority: optional
+Maintainer: Alexander Grothe <seahawk1986@gmx.de>
+Build-Depends: debhelper (>= 8.0.0), dh-python, python3-setuptools, python3-all
+Standards-Version: 3.9.4
+X-Python3-Version: >= 3.2
+
+Package: python3-yavdrctl
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: a vdrctl implementation in python3
+ manage and edit vdr configration files
