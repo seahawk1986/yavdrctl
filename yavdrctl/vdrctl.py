@@ -53,9 +53,9 @@ class VDRCTL():
 
     # formatting options
     prio_width = 4
-    name_width = 16
-    config_width = 24
-    line_width = 84
+    name_width = 22
+    config_width = 26
+    line_width = 92
 
     def __init__(self):
         actions = {
